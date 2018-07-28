@@ -19,6 +19,8 @@ def parse_transcript(xml_transcript):
         text = html.unescape(text)
         start = format_start(int(float(child.attrib['start'])))
         result += '%s%s\n' % (start.ljust(7), text)
+        # Add additional newline for writing space
+        result += '\n'
     return result
 
 
