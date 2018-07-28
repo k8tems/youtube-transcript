@@ -1,3 +1,4 @@
+import sys
 import html
 import xml.etree.ElementTree as ET
 
