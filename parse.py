@@ -1,5 +1,6 @@
 import sys
 import html
+import requests
 import xml.etree.ElementTree as ET
 
 
