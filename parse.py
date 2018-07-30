@@ -1,4 +1,4 @@
-import sys
+import argparse
 import html
 import requests
 import xml.etree.ElementTree as ET
@@ -31,7 +31,6 @@ def download_transcript(video_id, lang):
 
 
 def get_args():
-    import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument('video_id', type=str)
     parser.add_argument('dest', type=str)
