@@ -24,8 +24,7 @@ def parse_transcript(xml_transcript):
     return result
 
 
-def download_transcript(video_id):
-    lang = 'en'
+def download_transcript(video_id, lang):
     resp = requests.get(
         'https://video.google.com/timedtext?lang=%s&v=%s' % (lang, video_id))
     return resp.text
@@ -43,6 +42,6 @@ def get_args():
 if __name__ == '__main__':
     args = get_args()
 
-    transcript = parse_transcript(download_transcript(args.video_id))
+    transcript = parse_transcript(download_transcript(args.video_id, args.lang))
     with open(args.dest, 'w') as f:
         f.write(transcript)
