@@ -8,7 +8,7 @@ def format_start(start):
     return '%02d:%02d' % (start // 60, start % 60)
 
 
-def parse_transcript(xml_transcript):
+def parse(xml_transcript):
     result = ''
     root = ET.fromstring(xml_transcript)
     for child in root:
@@ -24,7 +24,7 @@ def parse_transcript(xml_transcript):
     return result
 
 
-def download_transcript(video_id, lang):
+def download(video_id, lang):
     resp = requests.get(
         'https://video.google.com/timedtext?lang=%s&v=%s' % (lang, video_id))
     return resp.text
@@ -41,6 +41,6 @@ def get_args():
 if __name__ == '__main__':
     args = get_args()
 
-    transcript = parse_transcript(download_transcript(args.video_id, args.lang))
+    transcript = parse(download(args.video_id, args.lang))
     with open(args.dest, 'w') as f:
         f.write(transcript)
