@@ -31,7 +31,18 @@ def download_transcript(video_id):
     return resp.text
 
 
+def get_args():
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument('video_id', type=str)
+    parser.add_argument('dest', type=str)
+    parser.add_argument('lang', type=str, default='en')
+    return parser.parse_args()
+
+
 if __name__ == '__main__':
-    transcript = parse_transcript(download_transcript(sys.argv[1]))
-    with open(sys.argv[2], 'w') as f:
+    args = get_args()
+
+    transcript = parse_transcript(download_transcript(args.video_id))
+    with open(args.dest, 'w') as f:
         f.write(transcript)
