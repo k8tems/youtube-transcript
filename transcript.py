@@ -1,3 +1,4 @@
+"""Download transcript and convert to human-readable format"""
 import argparse
 import html
 import requests
