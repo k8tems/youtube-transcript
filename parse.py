@@ -36,7 +36,7 @@ def get_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('video_id', type=str)
     parser.add_argument('dest', type=str)
-    parser.add_argument('lang', type=str, default='en')
+    parser.add_argument('--lang', type=str, default='en')
     return parser.parse_args()
 
 
