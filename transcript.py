@@ -26,6 +26,10 @@ def parse(xml_transcript):
 
 
 def download(video_id, lang):
+    """
+    If an error occurs, it's usually because the transcript in the specified language doesn't exist
+    Access https://video.google.com/timedtext?lang={lang}&v={video_id} for available languages
+    """
     url = 'https://video.google.com/timedtext?lang=%s&v=%s' % (lang, video_id)
     print('downloading', url)
     resp = requests.get(url)
