@@ -26,8 +26,9 @@ def parse(xml_transcript):
 
 
 def download(video_id, lang):
-    resp = requests.get(
-        'https://video.google.com/timedtext?lang=%s&v=%s' % (lang, video_id))
+    url = 'https://video.google.com/timedtext?lang=%s&v=%s' % (lang, video_id)
+    print('downloading', url)
+    resp = requests.get(url)
     return resp.text
 
 
